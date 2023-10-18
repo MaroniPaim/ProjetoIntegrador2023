@@ -1,0 +1,26 @@
+<!-- Div retangular -->
+<div class="rectangular-div">Psicologos Parceiros</div>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-card *ngFor="let item of items; let index">
+          <ion-card-header>
+            <img [src]="'https://picsum.photos/80/80?random=' + index" />
+
+            <ion-card-title>{{ item }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+      <ion-infinite-scroll>
+        <ion-infinite-scroll-content
+          loadingText="Please wait..."
+          loadingSpinner="bubbles"
+        ></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-card-content> </ion-card
+></ion-content>

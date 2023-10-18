@@ -1,0 +1,7 @@
+{
+  "name": "saudesocial",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
