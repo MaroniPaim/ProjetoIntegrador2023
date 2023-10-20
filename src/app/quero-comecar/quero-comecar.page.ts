@@ -18,4 +18,9 @@ export class QueroComecarPage implements OnInit {
       this.items.push(`Psicologo ${i}`);
     }
   }
+  showSpecialties: boolean = false;
+
+  toggleSpecialties(): void {
+    this.showSpecialties = !this.showSpecialties;
+  }
 }

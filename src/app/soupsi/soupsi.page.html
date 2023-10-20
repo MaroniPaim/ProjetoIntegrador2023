@@ -1,13 +1,89 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>soupsi</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="rectangular-div">Psicologos Parceiros</div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">soupsi</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-no-margin">
+  <ion-card
+    class="ion-no-margin ion-card-no-border ion-card-no-shadow"
+    id="juntar"
+  >
+    <ion-card-title>Junte-se agora mesmo</ion-card-title>
+    <ion-card-content></ion-card-content>
+  </ion-card>
+  <ion-card
+    class="ion-no-margin ion-card-no-border ion-card-no-shadow"
+    id="beneficios"
+  >
+    <ion-card-title>Beneficios de fazer parte</ion-card-title>
+    <ion-card-content></ion-card-content>
+  </ion-card>
+  <ion-card class="ion-card-no-shadow" id="comofunciona">
+    <ion-card-title>Como funciona a SaudeSocial</ion-card-title>
+    <ion-card-content></ion-card-content>
+  </ion-card>
+  <ion-card class="ion-card-no-shadow">
+    <ion-card-title>Increva-se aqui</ion-card-title>
+    <ion-card class="ion-card-no-shadow" id="form">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-input
+            label="Stacked label"
+            labelPlacement="stacked"
+            placeholder="Nome Completo*"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Stacked label"
+            labelPlacement="stacked"
+            placeholder="Telefone*"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Stacked label"
+            labelPlacement="stacked"
+            placeholder="E-mail*"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Stacked label"
+            labelPlacement="stacked"
+            placeholder="CRP*"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-select
+            label="Especialidades"
+            label-placement="stacked"
+            [multiple]="true"
+          >
+            <ion-select-option value="apple">Apple</ion-select-option>
+            <ion-select-option value="banana">Banana</ion-select-option>
+            <ion-select-option value="orange">Orange</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-select
+            label="Abordagens"
+            label-placement="stacked"
+            [multiple]="true"
+          >
+            <ion-select-option value="apple">Apple</ion-select-option>
+            <ion-select-option value="banana">Banana</ion-select-option>
+            <ion-select-option value="orange">Orange</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-checkbox labelPlacement="end" class="textinho"
+            >Li e concordo com os
+            <span class="break-text">
+              termos de uso e com a politíca de privacidade</span
+            ></ion-checkbox
+          >
+        </ion-item>
+      </ion-list>
+      <ion-button color="medium">Medium</ion-button>
+    </ion-card>
+    <ion-card-content> </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -2,25 +2,37 @@
 <div class="rectangular-div">Psicologos Parceiros</div>
 
 <ion-content>
-  <ion-card>
+  
     <ion-card-content>
       <ion-list lines="none">
-        <ion-card *ngFor="let item of items; let index">
-          <ion-card-header>
-            <img [src]="'https://picsum.photos/80/80?random=' + index" />
+        <div class="profile" *ngFor="let item of items; let index">
+          <img
+            src="https://avatars.githubusercontent.com/u/102095323?v=4"
+            alt="Profile Picture"
+          />
+          <h2>Lysianne Moura da Frota</h2>
+          <p>Psicóloga</p>
+          <p>CRP: 05/12008</p>
+          <p>Preço: R$30</p>
 
-            <ion-card-title>{{ item }}</ion-card-title>
-          </ion-card-header>
+          <div class="basic">
+            <p>Angústia</p>
+            <p>Autoconhecimento</p>
+            <p>Relacionamentos</p>
+          </div>
+          <div
+            class="specialties"
+            [style.display]="showSpecialties ? 'block' : 'none'"
+          >
+            <!-- Outras especialidades aqui -->
+            <p>Especialidade 1</p>
+            <p>Especialidade 2</p>
+          </div>
+          <button (click)="toggleSpecialties()">
+            Mostrar mais especialidades
+          </button>
+        </div>
 
-          <ion-card-content>
-          </ion-card-content>
-        </ion-card>
+        
       </ion-list>
-      <ion-infinite-scroll>
-        <ion-infinite-scroll-content
-          loadingText="Please wait..."
-          loadingSpinner="bubbles"
-        ></ion-infinite-scroll-content>
-      </ion-infinite-scroll>
-    </ion-card-content> </ion-card
-></ion-content>
+    </ion-card-content></ion-content>
