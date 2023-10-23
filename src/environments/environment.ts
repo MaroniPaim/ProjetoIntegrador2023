@@ -3,7 +3,27 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  
+  
+  production: false,
+   firebaseConfig: {
+
+    apiKey: "AIzaSyB1iWoA18XAVvbOPah1ATJpnB1_DdRMLe4",
+  
+    authDomain: "saudesocial23-51156.firebaseapp.com",
+  
+    databaseURL: "https://saudesocial23-51156-default-rtdb.firebaseio.com",
+  
+    projectId: "saudesocial23-51156",
+  
+    storageBucket: "saudesocial23-51156.appspot.com",
+  
+    messagingSenderId: "729154506495",
+  
+    appId: "1:729154506495:web:d2d82f577f8501baaf86ca"
+  
+  }
+
 };
 
 /*

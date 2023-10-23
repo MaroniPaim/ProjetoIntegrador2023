@@ -1,55 +1,50 @@
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-      </ion-title>
-
-      <!---------------LOGO------------------->
-      <ion-img
-      src="https://i.postimg.cc/6Q9btk9j/logo.png"
-      ></ion-img>
-    </ion-toolbar>
-  </ion-header>
-
+  <!---------------LOGO------------------->
+  <ion-img src="https://i.postimg.cc/6Q9btk9j/logo.png"></ion-img>
 
   <form>
-  <ion-item lines="full">
-    <ion-label position="floating">E-mail/CPF</ion-label>
-    <ion-input type="text" required></ion-input>
-  </ion-item>
+    <ion-item lines="full">
+      <ion-input
+            label="E-mail*"
+            labelPlacement="stacked"
+            placeholder="E-mail*"
+            [(ngModel)]="email"
+          ></ion-input>
+    </ion-item>
 
-  <ion-item lines="full">
-    <ion-label position="floating">Senha</ion-label>
-    <ion-input type="password" required></ion-input>
-  </ion-item>
-   <br>
-   <br>
+    <ion-item lines="full">
+      <ion-input
+            label="E-mail*"
+            labelPlacement="stacked"
+            placeholder="E-mail*"
+            [(ngModel)]="senha"
+          ></ion-input>
+    </ion-item>
+    <br />
+    <br />
+    <div class="ion-text-center">Não tem uma conta? <a>Inscreva-se</a></div>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" expand="block" (click)="login()"
+          >Logar</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
+  <br />
   <div class="ion-text-center">
-    Não tem uma conta? <a>Inscreva-se</a>
+    <a>Esqueceu sua senha?</a>
   </div>
 
-  <ion-row>
-    <ion-col>
-      <ion-button type="submit" expand="block">Logar</ion-button>
-    </ion-col>
-  </ion-row>
-</form>
-<br>
-<div class="ion-text-center">
-<a>Esqueceu sua senha?</a>
-</div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<!------------CRÉDITOS-------------->
-<div class="ion-text-center">
-<ion-text color=""><sub>
-© 2023 - Aplicativo desenvolvido por <ion-text color="light">Grupo A</ion-text>.
-<br>Todos os direitos reservados
-</sub></ion-text>
-</div>
+  <!------------CRÉDITOS-------------->
+  <div class="ion-text-center">
+    <ion-text color=""
+      ><sub>
+        © 2023 - Aplicativo desenvolvido por
+        <ion-text color="light">Grupo A</ion-text>. <br />Todos os direitos
+        reservados
+      </sub></ion-text
+    >
+  </div>
 </ion-content>

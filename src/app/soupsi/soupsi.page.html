@@ -25,28 +25,30 @@
       <ion-list lines="none">
         <ion-item>
           <ion-input
-            label="Stacked label"
+            label="Nome Completo*"
             labelPlacement="stacked"
             placeholder="Nome Completo*"
+            [(ngModel)]="name"
           ></ion-input>
         </ion-item>
         <ion-item>
           <ion-input
-            label="Stacked label"
+            label="Telefone (Whatsapp)*"
             labelPlacement="stacked"
-            placeholder="Telefone*"
+            placeholder="Telefone (Whatsapp)*"
           ></ion-input>
         </ion-item>
         <ion-item>
           <ion-input
-            label="Stacked label"
+            label="E-mail*"
             labelPlacement="stacked"
             placeholder="E-mail*"
+            [(ngModel)]="email"
           ></ion-input>
         </ion-item>
         <ion-item>
           <ion-input
-            label="Stacked label"
+            label="CRP*"
             labelPlacement="stacked"
             placeholder="CRP*"
           ></ion-input>
@@ -81,9 +83,25 @@
             ></ion-checkbox
           >
         </ion-item>
+        <ion-item>
+          <ion-input
+            label="Senha*"
+            type="password"
+            labelPlacement="stacked"
+            placeholder="Senha*"
+            [(ngModel)]="password"
+          ></ion-input>
+          <ion-input
+            label="Confirme sua senha*"
+            type="password"
+            labelPlacement="stacked"
+            [(ngModel)]="check"
+            placeholder="Confirme sua senha*"
+          ></ion-input>
+        </ion-item>
       </ion-list>
-      <ion-button color="medium">Medium</ion-button>
+      <ion-button id ="alerta" color="medium" (click)="signup()">Cadastrar</ion-button>
     </ion-card>
-    <ion-card-content> </ion-card-content>
+    <ion-card-content></ion-card-content>
   </ion-card>
 </ion-content>
