@@ -1,34 +1,39 @@
 <ion-content [fullscreen]="true">
-  <!---------------LOGO------------------->
-  <ion-img src="https://i.postimg.cc/6Q9btk9j/logo.png"></ion-img>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"> </ion-title>
 
-  <form>
-    <ion-item lines="full">
-      <ion-input
-            label="E-mail*"
-            labelPlacement="stacked"
-            placeholder="E-mail*"
-            [(ngModel)]="email"
-          ></ion-input>
+      <!---------------LOGO------------------->
+      <ion-img src="https://i.postimg.cc/6Q9btk9j/logo.png"></ion-img>
+    </ion-toolbar>
+  </ion-header>
+
+  <form #loginForm="ngForm" (ngSubmit)="login()">
+    <ion-item lines="full"
+      ><ion-input
+        label="E-mail*"
+        labelPlacement="stacked"
+        placeholder="exemplo@exemplo.com*"
+        [(ngModel)]="email"
+        name="email"
+      ></ion-input>
     </ion-item>
 
     <ion-item lines="full">
       <ion-input
-            label="E-mail*"
-            labelPlacement="stacked"
-            placeholder="E-mail*"
-            [(ngModel)]="senha"
-          ></ion-input>
+        label="Senha*"
+        labelPlacement="stacked"
+        placeholder="Senha*"
+        type="password"
+        [(ngModel)]="senha"
+        name="senha"
+      ></ion-input>
     </ion-item>
-    <br />
-    <br />
     <div class="ion-text-center">Não tem uma conta? <a>Inscreva-se</a></div>
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" expand="block" (click)="login()"
-          >Logar</ion-button
-        >
+        <ion-button type="submit" expand="block">Logar</ion-button>
       </ion-col>
     </ion-row>
   </form>
@@ -37,7 +42,6 @@
     <a>Esqueceu sua senha?</a>
   </div>
 
-  <!------------CRÉDITOS-------------->
   <div class="ion-text-center">
     <ion-text color=""
       ><sub>

@@ -12,6 +12,10 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+
+
+
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB1iWoA18XAVvbOPah1ATJpnB1_DdRMLe4',
@@ -35,15 +39,17 @@ const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-
+    
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    provideDatabase(() => getDatabase()),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {
+  
   constructor() {}
 }

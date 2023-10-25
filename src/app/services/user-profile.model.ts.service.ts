@@ -10,6 +10,7 @@ export class UserProfileModelTsService {
 
 export interface UserProfile {
   id: string;
+  foto:string;
   email: string;
   senha: string;
   nome: string;

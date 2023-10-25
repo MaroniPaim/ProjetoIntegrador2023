@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+
 import {
   Auth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signOut
+  signOut,
 } from '@angular/fire/auth';
 
 @Component({
@@ -18,24 +19,36 @@ export class SoupsiPage implements OnInit {
   password: string = '';
   check: string = '';
 
-  constructor(public navCntrl: NavController, private auth: Auth){}
-  
-  async signup() {
-    if(this.password==this.check){
-    const user = await createUserWithEmailAndPassword(
-      this.auth,
-      this.email,
-      this.password,
-      
-      );
-      console.log(this.check)
-      console.log(this.password)
-    return user;}else{
-      return alert("As senhas diferem!");
-      
-    }
- }
+  constructor(public navCntrl: NavController, private auth: Auth) {}
 
+  async signup() {
+    
+    if (this.password == this.check) {
+      try {
+          const user = await createUserWithEmailAndPassword(
+            this.auth,
+            this.email,
+            this.password
+          );
+          console.log(user);
+          
+          // Redireciona para a página inicial após cadastro bem-sucedido
+          this.gotoHome(); 
+          
+      } catch (error) {
+          console.error("Erro ao criar usuário:", error);
+          // Aqui você pode lidar com erros de cadastro, como mostrar uma mensagem para o usuário.
+      }
+    } 
+    
+    else {
+      return alert('As senhas diferem!');
+    }
+}
 
   ngOnInit() {}
+  gotoHome() {
+    this.navCntrl.navigateForward('/home');
+  }
+  
 }

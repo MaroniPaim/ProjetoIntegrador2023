@@ -7,6 +7,7 @@ import {
   signOut,
 } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
+import { Firestore } from '@angular/fire/firestore';
 
 
 @Component({
@@ -15,30 +16,32 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.page.scss'],
 })
 
+
 export class LoginPage {
   name: string = '';
   email: string = '';
   senha: string = '';
 
-  constructor(public navCntrl: NavController, private auth: Auth) {}
+  constructor(public navCntrl: NavController, private auth: Auth, ) {}
 
   async login() {
-    console.log(this.email, this.senha, this.auth);
-    const user = await signInWithEmailAndPassword(
-      this.auth,
-      this.email,
-      this.senha
-    );
+    try {
+      console.log(this.email, this.senha, this.auth);
+      const user = await signInWithEmailAndPassword(
+        this.auth,
+        this.email,
+        this.senha
+      );
+      console.log(user);
 
-    console.log(user);
-
-    return user;
-    this.gotoSignup();
+      // Redireciona para a página inicial após login bem-sucedido
+      this.gotoHome(); // Renomeei a função para um nome mais descritivo
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+      // Aqui você pode lidar com erros de login, como mostrar uma mensagem para o usuário.
+    }
   }
-
-  gotoSignup() {
+  gotoHome() {
     this.navCntrl.navigateForward('/home');
   }
-
-  ngOnInit() {}
 }
