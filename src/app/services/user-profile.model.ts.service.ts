@@ -11,6 +11,7 @@ export class UserProfileModelTsService {
 export interface UserProfile {
   id: string;
   foto:string;
+
   email: string;
   senha: string;
   nome: string;
@@ -18,6 +19,7 @@ export interface UserProfile {
   sexo: string;
   CRP: string;
   valorConsulta: number;
+  idiomas:string[];
   abordagem: string;
   bio: string;
   tags: string[]; // Lista de tags

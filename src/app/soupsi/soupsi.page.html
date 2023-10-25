@@ -4,21 +4,18 @@
   <ion-card
     class="ion-no-margin ion-card-no-border ion-card-no-shadow"
     id="juntar"
-  >
-    <ion-card-title>Junte-se agora mesmo</ion-card-title>
+  ></ion-card>
+
+  <ion-card class="ion-card-no-shadow">
+    <ion-card-title>Por que me juntar ao SaudeSocial</ion-card-title>
+    <ion-list lines="none">
+      <ion-item>possibilidade de atender pesoas em todo o mundo</ion-item>
+      <ion-item>ambiente virtual seguro</ion-item>
+      <ion-item>Preços acessíveis a todos as classes</ion-item>
+    </ion-list>
     <ion-card-content></ion-card-content>
   </ion-card>
-  <ion-card
-    class="ion-no-margin ion-card-no-border ion-card-no-shadow"
-    id="beneficios"
-  >
-    <ion-card-title>Beneficios de fazer parte</ion-card-title>
-    <ion-card-content></ion-card-content>
-  </ion-card>
-  <ion-card class="ion-card-no-shadow" id="comofunciona">
-    <ion-card-title>Como funciona a SaudeSocial</ion-card-title>
-    <ion-card-content></ion-card-content>
-  </ion-card>
+
   <ion-card class="ion-card-no-shadow">
     <ion-card-title>Increva-se aqui</ion-card-title>
     <ion-card class="ion-card-no-shadow" id="form">
@@ -76,6 +73,17 @@
           </ion-select>
         </ion-item>
         <ion-item>
+          <ion-select
+            label="Idiomas"
+            label-placement="stacked"
+            [multiple]="true"
+          >
+            <ion-select-option value="apple">Apple</ion-select-option>
+            <ion-select-option value="banana">Banana</ion-select-option>
+            <ion-select-option value="orange">Orange</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
           <ion-checkbox labelPlacement="end" class="textinho"
             >Li e concordo com os
             <span class="break-text">
@@ -100,7 +108,9 @@
           ></ion-input>
         </ion-item>
       </ion-list>
-      <ion-button id ="alerta" color="medium" (click)="signup()">Cadastrar</ion-button>
+      <ion-button id="alerta" color="medium" (click)="signup()"
+        >Cadastrar</ion-button
+      >
     </ion-card>
     <ion-card-content></ion-card-content>
   </ion-card>
