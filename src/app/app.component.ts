@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
-
+import { AuthenticationService } from './services/authentication.service';
+import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -8,5 +9,13 @@ import { Firestore } from '@angular/fire/firestore';
 })
 export class AppComponent {
 
-  constructor() {}
-}
+  constructor(
+    private AuthenticationService: AuthenticationService, private navCtrl: NavController) {}
+    
+    logout() {
+      this.AuthenticationService.logout().subscribe(() => {
+        this.navCtrl.navigateForward('/home');
+      });
+
+
+    }}

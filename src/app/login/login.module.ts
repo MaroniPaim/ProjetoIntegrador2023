@@ -5,6 +5,8 @@ import { Firestore } from '@angular/fire/firestore';
 import { IonicModule } from '@ionic/angular';
 import { LoginPageRoutingModule } from './login-routing.module';
 import { LoginPage } from './login.page';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthenticationService } from '../services/authentication.service';
 
 
 
@@ -17,8 +19,12 @@ import { LoginPage } from './login.page';
     FormsModule,
     IonicModule,
     LoginPageRoutingModule,
+    ReactiveFormsModule,
     
    
+  ],
+  providers: [
+    AuthenticationService
   ],
   declarations: [LoginPage]
 })

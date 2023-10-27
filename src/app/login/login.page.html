@@ -8,13 +8,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <form #loginForm="ngForm" (ngSubmit)="login()">
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
     <ion-item lines="full"
       ><ion-input
         label="E-mail*"
         labelPlacement="stacked"
         placeholder="exemplo@exemplo.com*"
-        [(ngModel)]="email"
+        formControlName="email"
         name="email"
       ></ion-input>
     </ion-item>
@@ -25,8 +25,8 @@
         labelPlacement="stacked"
         placeholder="Senha*"
         type="password"
-        [(ngModel)]="senha"
-        name="senha"
+        formControlName="password"
+        name="password"
       ></ion-input>
     </ion-item>
     <div class="ion-text-center">Não tem uma conta? <a>Inscreva-se</a></div>

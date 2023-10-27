@@ -6,42 +6,58 @@ import {
   createUserWithEmailAndPassword,
   signOut,
 } from '@angular/fire/auth';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, Validators } from '@angular/forms';
 import { Firestore } from '@angular/fire/firestore';
-
+import { AuthenticationService } from '../services/authentication.service';
+import { HotToastService } from '@ngneat/hot-toast';
+import { NonNullableFormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-
-
 export class LoginPage {
-  name: string = '';
-  email: string = '';
-  senha: string = '';
+  loginForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
+  });
 
-  constructor(public navCntrl: NavController, private auth: Auth, ) {}
+  constructor(
+    private authService: AuthenticationService,
+    private toast: HotToastService,
+    private navCtrl: NavController,
+    private fb: NonNullableFormBuilder
+  ) {}
 
-  async login() {
-    try {
-      console.log(this.email, this.senha, this.auth);
-      const user = await signInWithEmailAndPassword(
-        this.auth,
-        this.email,
-        this.senha
-      );
-      console.log(user);
+  ngOnInit(): void {}
 
-      // Redireciona para a página inicial após login bem-sucedido
-      this.gotoHome(); // Renomeei a função para um nome mais descritivo
-    } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      // Aqui você pode lidar com erros de login, como mostrar uma mensagem para o usuário.
-    }
+  get email() {
+    return this.loginForm.get('email');
   }
-  gotoHome() {
-    this.navCntrl.navigateForward('/home');
+
+  get password() {
+    return this.loginForm.get('password');
+  }
+
+  submit() {
+    const { email, password } = this.loginForm.value;
+
+    if (!this.loginForm.valid || !email || !password) {
+      return;
+    }
+
+    this.authService
+      .login(email, password)
+      .pipe(
+        this.toast.observe({
+          success: 'Logged in successfully',
+          loading: 'Logging in...',
+          error: ({ message }) => `There was an error: ${message} `,
+        })
+      )
+      .subscribe(() => {
+        this.navCtrl.navigateForward('/home');
+      });
   }
 }
