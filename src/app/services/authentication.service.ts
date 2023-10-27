@@ -14,8 +14,7 @@ import { concatMap, from, Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  
-  user$ = this.auth.currentUser;
+  currentUser$ = this.auth.currentUser;
   constructor(private auth: Auth) {}
 
   signUp(email: string, password: string): Observable<UserCredential> {
@@ -24,7 +23,6 @@ export class AuthenticationService {
 
   login(email: string, password: string): Observable<any> {
     return from(signInWithEmailAndPassword(this.auth, email, password));
-    
   }
 
   // updateProfile(profileData: Partial<UserInfo>): Observable<any> {
