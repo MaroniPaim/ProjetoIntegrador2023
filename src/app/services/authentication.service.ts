@@ -14,7 +14,8 @@ import { concatMap, from, Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  currentUser$ = this.auth.currentUser;
+  currentUser$ = authState(this.auth);
+  
   constructor(private auth: Auth) {}
 
   signUp(email: string, password: string): Observable<UserCredential> {
